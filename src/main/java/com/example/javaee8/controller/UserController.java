@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class UserController {
 
@@ -45,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String postSignUp(@ModelAttribute User user) {
+    public String postSignUp(@Valid @ModelAttribute User user) {
         userService.signup(user);
         try {
             return "redirect:/sign-in";

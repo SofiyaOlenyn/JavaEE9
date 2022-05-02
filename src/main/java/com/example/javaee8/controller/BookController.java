@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class BookController {
 
     @ResponseBody
     @PostMapping("/book")
-    public ResponseEntity<String> addBookPost(@RequestBody Book book) {
+    public ResponseEntity<String> addBookPost( @Valid @RequestBody Book book) {
         int status;
         String body;
         try {
